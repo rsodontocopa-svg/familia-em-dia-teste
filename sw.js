@@ -1,4 +1,4 @@
-/* Família em Dia — service worker dos avisos (versão web de teste).
+/* Tecelar — service worker dos avisos (versão web de teste).
    Só mostra avisos; abrir um aviso NUNCA confirma dose. */
 self.addEventListener('install', () => self.skipWaiting());
 self.addEventListener('activate', (event) => event.waitUntil(self.clients.claim()));
@@ -10,7 +10,7 @@ self.addEventListener('push', (event) => {
   } catch (e) {
     data = { body: event.data ? event.data.text() : '' };
   }
-  const title = data.title || 'Família em Dia';
+  const title = data.title || 'Tecelar';
   event.waitUntil(
     self.registration.showNotification(title, {
       body: data.body || '',
